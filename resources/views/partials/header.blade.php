@@ -57,6 +57,11 @@
                             <a class="dropdown-item" href="#">Action 2</a>
                         </div>
                     </li>
+
+                    <li
+                        class="nav-item h-100 d-flex align-items-center {{ Route::currentRouteName() === 'comics.index' ? 'active' : '' }}">
+                        <a class="nav-link " href="  {{ route('comics.index') }} ">Admin</a>
+                    </li>
                 </ul>
                 <form class="d-flex my-2 my-lg-0">
                     <input class="form-control me-sm-2" type="text" placeholder="Search">
