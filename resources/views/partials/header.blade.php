@@ -18,10 +18,15 @@
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav me-auto mt-2 mt-lg-0">
                     <li class="nav-item">
+                        <a class="nav-link text-uppercase {{ Route::currentRouteName() === 'home' ? 'active' : '' }}"
+                            href="{{ route('home') }}">HOME</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link text-uppercase" href="#">CHARACTERS</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-uppercase" href="#">COMICS</a>
+                        <a class="nav-link text-uppercase {{ Route::currentRouteName() === 'comics' ? 'active' : '' }}"
+                            href="{{ route('comics') }}">COMICS</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-uppercase" href="#">MOVIES</a>
