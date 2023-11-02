@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <section>
+    <section class="py-5">
         <form action="{{ route('comics.update', $comic) }}" method="POST">
             @csrf
             @method('PUT')
@@ -24,6 +24,9 @@
                 <input type="text" name="series" id="series" class="form-control" placeholder="insert a series"
                     aria-describedby="helpId">
                 <small id="seriesHelper" class="text-muted">Insert a series</small>
+                <div>
+                    <img width="300" src="{{ asset('storage/' . $comic->thumb) }}" alt="">
+                </div>
             </div>
 
             <button type="submit" class="btn btn-primary">Add</button>
