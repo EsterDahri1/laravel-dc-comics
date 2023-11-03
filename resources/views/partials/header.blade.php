@@ -16,10 +16,12 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                <ul class="navbar-nav me-auto mt-2 mt-lg-0 d-flex align-items-center">
                     <li class="nav-item">
                         <a class="nav-link text-uppercase {{ Route::currentRouteName() === 'home' ? 'active' : '' }}"
-                            href="{{ route('home') }}">HOME</a>
+                            href="{{ route('home') }}">
+                            <img width="75" src="{{ Vite::asset('resources/img/logo.png') }}" alt="">
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-uppercase" href="#">CHARACTERS</a>
@@ -60,12 +62,12 @@
 
                     <li
                         class="nav-item h-100 d-flex align-items-center {{ Route::currentRouteName() === 'comics.index' ? 'active' : '' }}">
-                        <a class="nav-link " href="  {{ route('comics.index') }} ">Admin</a>
+                        <a class=" btn btn-primary rounded-pill" href="  {{ route('comics.index') }} ">ADMIN</a>
                     </li>
                 </ul>
                 <form class="d-flex my-2 my-lg-0">
                     <input class="form-control me-sm-2" type="text" placeholder="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>
         </div>
