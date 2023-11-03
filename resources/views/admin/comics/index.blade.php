@@ -85,6 +85,8 @@
                     @endforelse
                 </tbody>
             </table>
+
+            {!! $comics->withQueryString()->links('pagination::bootstrap-5') !!}
         </div>
     </div>
 @endsection
