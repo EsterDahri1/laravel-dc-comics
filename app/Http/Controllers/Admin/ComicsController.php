@@ -31,16 +31,22 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        $image_path = null;
+        // $image_path = null;
+
+        $val_data = $request->validated();
+
         if ($request->has('thumb')) {
-            $image_path = Storage::put('comic_image', $request->thumb);
+            $file_path = Storage::put('comic_image', $request->thumb);
+            $val_data['thumb'] = $file_path;
         }
 
-        $comic = new Comic();
-        $comic->title = $request->title;
-        $comic->thumb = $image_path;
-        $comic->series = $request->series;
-        $comic->save();
+        Comic::create($val_data);
+
+        // $comic = new Comic();
+        // $comic->title = $request->title;
+        // $comic->thumb = $image_path;
+        // $comic->series = $request->series;
+        // $comic->save();
 
         return to_route('comics.index');
     }
@@ -99,5 +105,12 @@ class ComicsController extends Controller
 
         //POST REDIRECT GET
         return to_route('comics.index')->with('message', 'Well done! Comic deleted successfully 👍');
+    }
+
+    /**
+     * Soft delete method. Add the files in a trashcan that can be restored.
+     */
+    public function deleted_comics(){
+        return view('admin.comics.dumbster', ['deleted_comics' => Comic::onlyTrashed()->get()]);
     }
 }
